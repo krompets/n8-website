@@ -1,0 +1,157 @@
+<div class="app-content-wrapper">
+  <!-- Advantage of being with us! -->
+  <div class="app-content-wrapper__advantage">
+    <h2 class="app-content-wrapper__title">Advantage of being with us!</h2>
+    <div class="advantage-content">
+      <!-- card1 -->
+      <div class="advantage-content__card">
+        <div class="advantage-content__card--icon">
+          <div class="card1_icon"></div>
+        </div>
+        <h3>Grow your passive income</h3>
+        <div class="advantage-content__card--description">
+          Securely delegate your funds to our trusted validators on leading
+          Proof of Stake (POS) blockchains and become part of the movement towards
+          decentralization. By delegating to us, you not only support our growth and
+          improvement but also have the opportunity to increase your holdings.
+        </div>
+      </div>
+      <!-- card2 -->
+      <div class="advantage-content__card">
+        <div class="advantage-content__card--icon">
+          <div class="card2_icon"></div>
+        </div>
+        <h3>Project and community support</h3>
+        <div class="advantage-content__card--description">
+          We actively contribute to the community by creating guides, developing tools,
+          and offering secure infrastructure. Simplifying node operator life and supporting
+          projects is our priority. Partner with us for a dedicated and reliable collaboration.
+        </div>
+      </div>
+      <!-- card3 -->
+      <div class="advantage-content__card">
+        <div class="advantage-content__card--icon">
+          <div class="card3_icon"></div>
+        </div>
+        <h3>Collaboration with projects</h3>
+        <div class="advantage-content__card--description">
+          We offer a range of services including running RPC nodes, State Sync services,
+          and IBC relayers. Additionally, we develop tools to support the community and
+          projects. If you represent a project in need of trusted validators for Testnet and/or
+          Mainnet, please reach out to us via email. We look forward to hearing from you and providing
+          our expertise and services.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Your Blockchain Team! -->
+  <div class="app-content-wrapper__team">
+    <h2 class="app-content-wrapper__title">Your Blockchain Team!</h2>
+    <div class="team-content">
+      <div class="team-content__left"></div>
+      <div class="team-content__right">
+        <p class="team-content__right--text">
+          We are the N8 Team, a dynamic group of nine highly skilled technology enthusiasts based in Ukraine. As an
+          organization, we are deeply committed to the principles of validation, distributed node operation, and
+          decentralization. With a collective experience of over 10 years in the blockchain industry, N8 Team emerged
+          in mid-2022 as a community-driven initiative centered around the Obol cluster. Since our inception, we have
+          grown to become an integral part of the Obol ecosystem, expanding our range of services to cater to other
+          networks and projects.
+          <br><br>
+          Our primary expertise lies in efficiently running validators for various networks,
+          and we take pride in our ability to ensure their smooth operation. Additionally, we offer comprehensive
+          consultation services, assisting businesses and projects in navigating the complexities of the blockchain
+          landscape. Moreover, we actively contribute to the growth acceleration and funding of innovative ventures.
+          <br><br>
+          At N8 Team, we are passionate about fostering the advancement of decentralized technologies. We strive to
+          deliver exceptional support to our clients and partners, leveraging our in-depth knowledge and dedication to
+          drive meaningful progress within the blockchain ecosystem.
+        </p>
+        <div class="team-content__right--button">
+          <div class="button-wrapper">
+            <button class="button btn-sm" (click)="scroll.scrollToElement(anchor.contacts)">
+              CONTACT  US <span class="material-symbols-outlined">expand_more</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- NETWORKS -->
+  <div class="app-content-wrapper__networks" [id]="anchor.networks">
+    <h2 class="app-content-wrapper__title">NETWORKS</h2>
+    <div class="networks-content">
+      <div class="networks-content__tabs">
+        <div class="networks-content__tabs--item"
+             [class.active]="currentFilter === filters.active"
+             (click)="setFilter(filters.active)"
+        >ACTIVE</div>
+        <div class="networks-content__tabs--item"
+             [class.active]="currentFilter === filters.upcoming"
+             (click)="setFilter(filters.upcoming)"
+        >UPCOMING</div>
+        <div class="networks-content__tabs--item"
+             [class.active]="currentFilter === filters.ended"
+             (click)="setFilter(filters.ended)"
+        >ENDED</div>
+      </div>
+      <div class="networks-content__cards">
+        <div *ngFor="let card of CURRENT_CARDS" class="card-item">
+          <div class="card-item__icon">
+            <img [src]="'assets/' + card.icon" alt="">
+          </div>
+          <div class="card-item__name">{{card.title}}</div>
+          <div class="card-item__rating">Rating: {{card.rating}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- About N8 Validators -->
+  <div class="app-content-wrapper__about" [id]="anchor.about">
+    <div class="app-content-wrapper__about--top">
+      <div class="about-content-top__left">
+        <h2 class="app-content-wrapper__title">About N8 Validators</h2>
+        <p class="app-content-wrapper__about--description">
+          N8 Team helps investors and regular token holders to profit off their crypto assets. We run highly secure
+          and reliable nodes for PoS protocols using the enterprise-level hardware to ensure maximum efficiency
+          and security.
+        </p>
+      </div>
+      <div class="about-content-top__right"></div>
+    </div>
+    <div class="app-content-wrapper__about--list">
+      <div class="about-content__list--item">
+        <div class="item-number">1</div>
+        <div class="item-value">Become part of Validators world with N8 Team.</div>
+      </div>
+      <div class="about-content__list--item">
+        <div class="item-number">2</div>
+        <div class="item-value">Delegate or create your node in testnet/mainnet.</div>
+      </div>
+      <div class="about-content__list--item">
+        <div class="item-number">3</div>
+        <div class="item-value">Receive your profit!</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Social media -->
+  <div class="app-content-wrapper__social" [id]="anchor.contacts">
+    <div class="app-logo"></div>
+    <div class="social-items">
+      <a class="social-icon twitter-icon" href="" target="_blank"></a>
+      <a class="social-icon youtube-icon" href="" target="_blank"></a>
+      <a class="social-icon telegram-icon" href="" target="_blank"></a>
+      <a class="social-icon discord-icon" href="" target="_blank"></a>
+      <a class="social-icon github-icon" href="" target="_blank"></a>
+      <a class="social-icon email-icon" href="" target="_blank"></a>
+    </div>
+  </div>
+</div>
