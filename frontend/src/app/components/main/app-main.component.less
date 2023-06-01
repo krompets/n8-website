@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   width: 100%;
+  box-sizing: border-box;
 
   &__left {
     width: 700px;
@@ -27,4 +28,38 @@
     background-image: url("src/assets/layer1.png");
     background-repeat: no-repeat;
   }
+}
+
+@media (max-width: 1303px) {
+  .app-main-wrapper {
+    width: 95%;
+    margin: 0 auto;
+    &__left {
+      width: 50%;
+      h2 {
+        font-size: 24px !important;
+        line-height: 140%;
+      }
+    }
+    &__right {
+      width: 50%;
+      background-size: contain;
+      background-position: center right;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+ .app-main-wrapper {
+   margin-bottom: 54px;
+   &__left {
+     h2 {
+       margin-bottom: 8px;
+     }
+   }
+   &__right {
+     height: 112px;
+     margin-left: 10px;
+   }
+ }
 }
