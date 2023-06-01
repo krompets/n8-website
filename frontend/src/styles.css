@@ -77,7 +77,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 @media (max-width: 1303px) {
-  .button {
+  .button,
+  .button.btn-lg,
+  .button.btn-sm {
     height: 40px;
     border-radius: 20px;
     padding: 0 40px;
@@ -91,5 +93,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   app-root {
     display: flex;
     width: 100%;
+  }
+  .button .material-symbols-outlined {
+    font-size: 16px !important;
   }
 }
