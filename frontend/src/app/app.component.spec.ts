@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'celestia-pfb-app'`, () => {
+  it(`should have as title 'n8-website-app'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('celestia-pfb-app');
+    expect(app.title).toEqual('n8-website-app');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('celestia-pfb-app app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('n8-website-app app is running!');
   });
 });
