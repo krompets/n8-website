@@ -69,10 +69,10 @@ export class AppContentComponent implements OnInit {
   CURRENT_CARDS: any[] = [];
   currentFilter = Filters.active;
 
-  @HostListener('window:resize', ['$event'])
-  onWindowResize(event: Event) {
-    this.checkScreenSize();
-  }
+  // @HostListener('window:resize', ['$event'])
+  // onWindowResize(event: Event) {
+  //   this.checkScreenSize();
+  // }
 
   constructor(public scroll: ScrollService) {
   }
