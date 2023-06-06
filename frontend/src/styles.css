@@ -98,7 +98,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .button .material-symbols-outlined {
     font-size: 22px !important;
   }
-  .button {
+  .button,
+  .button.btn-lg,
+  .button.btn-sm {
     border-width: 2px;
     height: 24px;
   }
