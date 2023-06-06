@@ -6,10 +6,14 @@
       <!-- card1 -->
       <div class="advantage-content__card">
         <div class="advantage-content__card--icon">
-          <div class="card1_icon"></div>
+          <div class="card1_icon card-icon"></div>
+          <h3>Grow your passive income</h3>
+          <span class="expand-more-icon material-symbols-outlined"
+                (click)="advantageAccordionState.card1 = !advantageAccordionState.card1"
+          >expand_more</span>
         </div>
-        <h3>Grow your passive income</h3>
-        <div class="advantage-content__card--description">
+        <div *ngIf="advantageAccordionState.card1"
+             class="advantage-content__card--description">
           Securely delegate your funds to our trusted validators on leading
           Proof of Stake (POS) blockchains and become part of the movement towards
           decentralization. By delegating to us, you not only support our growth and
@@ -19,10 +23,14 @@
       <!-- card2 -->
       <div class="advantage-content__card">
         <div class="advantage-content__card--icon">
-          <div class="card2_icon"></div>
+          <div class="card2_icon card-icon"></div>
+          <h3>Project and community support</h3>
+          <span class="expand-more-icon material-symbols-outlined"
+                (click)="advantageAccordionState.card2 = !advantageAccordionState.card2"
+          >expand_more</span>
         </div>
-        <h3>Project and community support</h3>
-        <div class="advantage-content__card--description">
+        <div *ngIf="advantageAccordionState.card2"
+             class="advantage-content__card--description">
           We actively contribute to the community by creating guides, developing tools,
           and offering secure infrastructure. Simplifying node operator life and supporting
           projects is our priority. Partner with us for a dedicated and reliable collaboration.
@@ -31,10 +39,12 @@
       <!-- card3 -->
       <div class="advantage-content__card">
         <div class="advantage-content__card--icon">
-          <div class="card3_icon"></div>
+          <div class="card3_icon card-icon"></div>
+          <h3>Collaboration with projects</h3>
+          <span (click)="advantageAccordionState.card3 = !advantageAccordionState.card3"
+                class="expand-more-icon material-symbols-outlined">expand_more</span>
         </div>
-        <h3>Collaboration with projects</h3>
-        <div class="advantage-content__card--description">
+        <div *ngIf="advantageAccordionState.card3" class="advantage-content__card--description">
           We offer a range of services including running RPC nodes, State Sync services,
           and IBC relayers. Additionally, we develop tools to support the community and
           projects. If you represent a project in need of trusted validators for Testnet and/or
@@ -107,6 +117,9 @@
           <div class="card-item__name">{{card.title}}</div>
           <div class="card-item__rating">Rating: {{card.rating}}</div>
         </div>
+      </div>
+      <div class="networks-content__paginator">
+        <button class="load-more-btn" (click)="showMore()"></button>
       </div>
     </div>
   </div>
