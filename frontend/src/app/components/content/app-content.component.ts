@@ -1,12 +1,9 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { EAnchor } from "../../types/types";
+import { Component, OnInit } from '@angular/core';
+import { EAnchor, EProjectStatus, IFilters } from "../../types/types";
 import { ScrollService } from "../../services/scroll.service";
+import { Router } from "@angular/router";
+import { ProjectsService } from "../../services/projects.service";
 
-export enum Filters {
-  active = 'active',
-  upcoming = 'upcoming',
-  ended = 'ended'
-}
 @Component({
   selector: 'app-content',
   templateUrl: './app-content.component.html',
@@ -20,94 +17,56 @@ export class AppContentComponent implements OnInit {
     card3: true
   }
 
-  filters = Filters;
+  filters = EProjectStatus;
   SMALL_SCREEN_SIZE = false;
-  PAGE_SIZE = 8;
   CARDS = [];
 
-  ALL_CARDS = {
-    active: [
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'obol.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'solana.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'}
-    ],
-    upcoming: [
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'obol.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'solana.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'obol.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'solana.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'}
-    ],
-    ended: [
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'obol.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'solana.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'obol.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'solana.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'},
-      {icon: 'harmony.png', title: 'Harmony', rating: 'Not rated'}
-    ]
+  CURRENT_PROJECTS: any[] = [];
+  currentFilters: IFilters = {
+    status: EProjectStatus.active,
+    pageSize: 8
   };
 
-  CURRENT_CARDS: any[] = [];
-  currentFilter = Filters.active;
-
-  // @HostListener('window:resize', ['$event'])
-  // onWindowResize(event: Event) {
-  //   this.checkScreenSize();
-  // }
-
-  constructor(public scroll: ScrollService) {
+  constructor(public scroll: ScrollService,
+              private router: Router,
+              public projectsService: ProjectsService
+  ) {
   }
 
   ngOnInit() {
     this.checkScreenSize();
+    this.projectsService.filterSubject$.subscribe((filters) => {
+      this.projectsService.filterProjects(filters);
+    })
   }
 
-  setFilter(filter: Filters) {
-    this.currentFilter = filter;
-    this.CURRENT_CARDS = this.ALL_CARDS[filter].slice(0, this.PAGE_SIZE);
+  setFilter(status: EProjectStatus) {
+    this.currentFilters.status = status;
+    this.doFilter();
+  }
+
+  doFilter() {
+    this.projectsService.filterSubject$.next(this.currentFilters);
   }
 
   checkScreenSize() {
     this.SMALL_SCREEN_SIZE = window.innerWidth < 768;
     if(this.SMALL_SCREEN_SIZE) {
-      this.PAGE_SIZE = 6;
+      this.currentFilters.pageSize = 6;
       this.advantageAccordionState.card1 = false;
       this.advantageAccordionState.card2 = false;
       this.advantageAccordionState.card3 = false;
     } else {
-      this.PAGE_SIZE = 8;
+      this.currentFilters.pageSize = 8;
       this.advantageAccordionState.card1 = true;
       this.advantageAccordionState.card2 = true;
       this.advantageAccordionState.card3 = true;
     }
-    this.CURRENT_CARDS = this.ALL_CARDS[this.currentFilter]
-      .slice(0, this.PAGE_SIZE);
+    this.doFilter();
   }
 
   showMore() {
-    const visibleCount = this.CURRENT_CARDS.length;
-    const allCount = this.ALL_CARDS[this.currentFilter].length;
-    if (visibleCount < allCount) {
-      this.CURRENT_CARDS = this.ALL_CARDS[this.currentFilter].slice(0, allCount);
-    }
+    this.currentFilters.pageSize = this.currentFilters.pageSize * 2;
+    this.doFilter();
   }
 }

@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
 body {
-  font-family: Open-Sans, sans-serif;
+  font-family: 'Inter', sans-serif;
   background-color: #01010E;
   display: flex;
   width: 100%;
@@ -8,10 +10,14 @@ body {
   background-image: url("src/assets/big-bg_optimized.png");
   background-repeat: no-repeat;
   background-position-x: center;
+  margin: 0;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
 .button {
   position: relative;
@@ -75,6 +81,51 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-image: url("src/assets/logo.svg");
   background-size: 100%;
   background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.social-items {
+  margin-left: 260px;
+}
+
+.social-icon {
+  display: inline-flex;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-right: 40px;
+
+&:hover {
+   opacity: 0.6;
+   transition: opacity .3s ease-in-out;
+   -moz-transition: opacity .3s ease-in-out;
+   -webkit-transition: opacity .3s ease-in-out;
+ }
+
+&.twitter-icon {
+   background-image: url("src/assets/twitter.png");
+ }
+
+&.youtube-icon {
+   background-image: url("src/assets/youtube.png");
+ }
+
+&.telegram-icon {
+   background-image: url("src/assets/telegram.png");
+ }
+
+&.discord-icon {
+   background-image: url("src/assets/discord.png");
+ }
+
+&.github-icon {
+   background-image: url("src/assets/github.png");
+ }
+
+&.email-icon {
+   background-image: url("src/assets/mail.png");
+ }
 }
 
 @media (max-width: 1303px) {

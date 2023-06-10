@@ -13,13 +13,18 @@ import { AppMenuComponent } from './components/menu/app-menu.component';
 import { AppMainComponent } from './components/main/app-main.component';
 import { AppContentComponent } from './components/content/app-content.component';
 import { ScrollService } from './services/scroll.service';
+import { AppRoutingModule } from "./app-routing.module";
+import { MainPageComponent } from "./pages/main-page/main-page.component";
+import { ProjectPageComponent } from "./pages/project-page/project-page.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     AppMenuComponent,
     AppMainComponent,
-    AppContentComponent
+    AppContentComponent,
+    MainPageComponent,
+    ProjectPageComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,8 @@ import { ScrollService } from './services/scroll.service';
     MatSelectModule,
     MatCheckboxModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    AppRoutingModule
   ],
   providers: [ScrollService],
   bootstrap: [AppComponent]

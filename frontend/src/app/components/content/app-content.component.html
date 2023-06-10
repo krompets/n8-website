@@ -97,25 +97,28 @@
     <div class="networks-content">
       <div class="networks-content__tabs">
         <div class="networks-content__tabs--item"
-             [class.active]="currentFilter === filters.active"
+             [class.active]="currentFilters.status === filters.active"
              (click)="setFilter(filters.active)"
         >ACTIVE</div>
         <div class="networks-content__tabs--item"
-             [class.active]="currentFilter === filters.upcoming"
+             [class.active]="currentFilters.status === filters.upcoming"
              (click)="setFilter(filters.upcoming)"
         >UPCOMING</div>
         <div class="networks-content__tabs--item"
-             [class.active]="currentFilter === filters.ended"
+             [class.active]="currentFilters.status === filters.ended"
              (click)="setFilter(filters.ended)"
         >ENDED</div>
       </div>
       <div class="networks-content__cards">
-        <div *ngFor="let card of CURRENT_CARDS" class="card-item">
+        <div *ngFor="let project of projectsService.projects$.value | keyvalue"
+             class="card-item"
+             [routerLink]="['/project', project.key]"
+        >
           <div class="card-item__icon">
-            <img [src]="'assets/' + card.icon" alt="">
+            <img [src]="'assets/' + project.value.icon" alt="">
           </div>
-          <div class="card-item__name">{{card.title}}</div>
-          <div class="card-item__rating">Rating: {{card.rating}}</div>
+          <div class="card-item__name">{{project.value.title}}</div>
+          <div class="card-item__rating">Rating: {{project.value.rating}}</div>
         </div>
       </div>
       <div class="networks-content__paginator">

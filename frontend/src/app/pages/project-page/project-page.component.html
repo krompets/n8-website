@@ -1,0 +1,98 @@
+<div class="project-page-wrapper">
+  <div class="project-page-wrapper__menu">
+    <div class="app-logo" routerLink="/"></div>
+    <div class="search-project">
+      <input class="search-project__input"
+             type="text" [(ngModel)]="searchQuery"
+             (input)="search()"
+             placeholder="Search project..."
+             #searchInput
+      />
+      <ul *ngIf="searchResults"
+          class="search-project__result">
+        <li *ngFor="let result of searchResults | keyvalue"
+            class="search-project__result--item"
+            (click)="navigateToProject(result.key)"
+            >{{ result.key }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-page-wrapper__page" *ngIf="project else noSuchProject">
+    <div>
+      <div class="project-title">
+        <div class="project-icon"><img [src]="'assets/' + project.icon"></div>
+        <div class="project-name">{{project.title}}</div>
+      </div>
+
+      <div class="project-status">
+        <div class="status">Status: <span>{{project.status}}</span></div>
+        <div class="">Dates: <span>{{project.dates}}</span></div>
+        <div class="">Type: <span>{{project.type}}</span></div>
+      </div>
+
+      <div class="project-description">{{project.description}}</div>
+
+      <div class="project-requirements">
+        <h3>System Requirements</h3>
+        <table *ngIf="project.requirements" class="table">
+          <tr>
+            <td>CPU</td>
+            <td>{{project.requirements.cpu}}</td>
+          </tr>
+          <tr>
+            <td>RAM</td>
+            <td>{{project.requirements.ram}}</td>
+          </tr>
+          <tr>
+            <td>Storage</td>
+            <td>{{project.requirements.storage}}</td>
+          </tr>
+          <tr>
+            <td>OS</td>
+            <td>{{project.requirements.os}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="project-media">
+      <div class="social-items">
+        <a *ngIf="project.media.twitter"
+           class="social-icon twitter-icon"
+           [href]="project.media.twitter"
+           target="_blank"
+        ></a>
+        <a *ngIf="project.media.youtube"
+           class="social-icon youtube-icon"
+           [href]="project.media.youtube"
+           target="_blank"
+        ></a>
+        <a *ngIf="project.media.telegram"
+           class="social-icon telegram-icon"
+           [href]="project.media.telegram"
+           target="_blank"
+        ></a>
+        <a *ngIf="project.media.discord"
+           class="social-icon discord-icon"
+           [href]="project.media.discord"
+           target="_blank"
+        ></a>
+        <a *ngIf="project.media.github"
+           class="social-icon github-icon"
+           [href]="project.media.github"
+           target="_blank"
+        ></a>
+        <a *ngIf="project.media.email"
+           class="social-icon email-icon"
+           [href]="'mailto: ' + project.media.email"
+        ></a>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noSuchProject>
+    <div class="project-not-found">PROJECT NOT FOUND</div>
+  </ng-template>
+</div>
+<div class="full-bg"></div>
