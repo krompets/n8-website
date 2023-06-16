@@ -31,7 +31,7 @@
         <div class="">Type: <span>{{project.type}}</span></div>
       </div>
 
-      <div class="project-description">{{project.description}}</div>
+      <div class="project-description" [innerHTML]="project.description"></div>
 
       <div class="project-requirements">
         <h3>System Requirements</h3>
@@ -58,6 +58,11 @@
 
     <div class="project-media">
       <div class="social-items">
+        <a *ngIf="project.media.website"
+           class="social-icon website-icon"
+           [href]="project.media.website"
+           target="_blank"
+        ></a>
         <a *ngIf="project.media.twitter"
            class="social-icon twitter-icon"
            [href]="project.media.twitter"

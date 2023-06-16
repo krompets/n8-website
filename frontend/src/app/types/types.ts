@@ -25,6 +25,7 @@ export interface ISystemRequirements {
 }
 
 export interface IMedia {
+  website?: string;
   twitter?: string;
   facebook?: string;
   discord?: string;

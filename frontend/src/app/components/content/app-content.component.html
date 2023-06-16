@@ -114,11 +114,13 @@
              class="card-item"
              [routerLink]="['/project', project.key]"
         >
-          <div class="card-item__icon">
-            <img [src]="'assets/' + project.value.icon" alt="">
-          </div>
-          <div class="card-item__name">{{project.value.title}}</div>
-          <div class="card-item__rating">Rating: {{project.value.rating}}</div>
+<!--          <div class="card-item">-->
+            <div class="card-item__icon">
+              <img [src]="'assets/' + project.value.icon" alt="">
+            </div>
+            <div class="card-item__name">{{project.value.title}}</div>
+            <div class="card-item__rating">Rating: {{project.value.rating}}</div>
+<!--          </div>-->
         </div>
       </div>
       <div class="networks-content__paginator">
@@ -162,6 +164,7 @@
   <div class="app-content-wrapper__social" [id]="anchor.contacts">
     <div class="app-logo"></div>
     <div class="social-items">
+      <a class="social-icon website-icon" href="" target="_blank"></a>
       <a class="social-icon twitter-icon" href="" target="_blank"></a>
       <a class="social-icon youtube-icon" href="" target="_blank"></a>
       <a class="social-icon telegram-icon" href="" target="_blank"></a>

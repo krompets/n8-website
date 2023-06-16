@@ -1,36 +1,20 @@
-import { IProject, IProjects } from "../types/types";
+import { IProjects } from "../types/types";
 import { OBOL } from "./projects/obol";
-import { OBOLENDED } from "./projects/obolEnded";
-import { OBOLUPCOM } from "./projects/obolUpcoming";
+import { MASSA } from "./projects/massa";
+import { SHARDEUM } from "./projects/shardeum";
+import { KYVE } from "./projects/kyve";
+import { CELESTIA } from "./projects/celestia";
+import { STARKNET } from "./projects/starknet";
+import { BASE } from "./projects/base";
+import { ALEO } from "./projects/aleo";
 
 export const PROJECTS: IProjects = {
   obol: OBOL,
-  obol1: OBOL,
-  obol2: OBOL,
-  obol3: OBOL,
-  obol4: OBOL,
-  obol5: OBOL,
-  obol6: OBOL,
-  obol7: OBOL,
-  obol8: OBOL,
-  obol9: OBOL,
-  obol0: OBOL,
-  obol10: OBOL,
-  obol11: OBOL,
-  obol12: OBOLENDED,
-  obol13: OBOLENDED,
-  obol14: OBOLENDED,
-  obol15: OBOLENDED,
-  obol16: OBOLENDED,
-  obol26: OBOLENDED,
-  obol36: OBOLENDED,
-  obol46: OBOLUPCOM,
-  obol2446: OBOLUPCOM,
-  obol246: OBOLUPCOM,
-  obol2644: OBOLUPCOM,
-  obo4l26: OBOLUPCOM,
-  obo44l26: OBOLUPCOM,
-  obo4l426: OBOLUPCOM,
-  ob1o4l426: OBOLUPCOM,
-  ob4ol2644: OBOLUPCOM
+  massa: MASSA,
+  shardeum: SHARDEUM,
+  kyve: KYVE,
+  celestia: CELESTIA,
+  starknet: STARKNET,
+  base: BASE,
+  aleo: ALEO
 };

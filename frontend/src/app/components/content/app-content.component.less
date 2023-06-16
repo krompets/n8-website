@@ -205,13 +205,9 @@
         flex-wrap: wrap;
 
         .card-item {
+          position: relative;
           box-sizing: border-box;
           padding: 0 30px;
-          border-width: 2px;
-          border-style: solid;
-          background: linear-gradient(#070213, #070213) padding-box,
-          linear-gradient(180deg, #11B6DC -0.37%, #E40ECF) border-box;
-          border-image-source: linear-gradient(268.08deg, #11B6DC -0.37%, #E40ECF 100%);
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -223,10 +219,23 @@
           margin: 15px;
           cursor: pointer;
           &:hover {
-            opacity: 0.6;
-            transition: opacity .3s ease-in-out;
-            -moz-transition: opacity .3s ease-in-out;
-            -webkit-transition: opacity .3s ease-in-out;
+            background: rgba(33, 22, 73, 0.7);
+            transition: background-color .3s ease-in-out;
+            -moz-transition: background-color .3s ease-in-out;
+            -webkit-transition: background-color .3s ease-in-out;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 3px;
+            background:linear-gradient(180deg, #11B6DC -0.37%, #E40ECF) border-box;
+            -webkit-mask:
+              linear-gradient(#fff 0 0) content-box,
+              linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
           }
 
           &__icon {
