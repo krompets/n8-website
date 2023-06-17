@@ -12,6 +12,7 @@ import { NAMADA } from "./projects/namada";
 import { NIBIRU } from "./projects/nibiru";
 import { QUAI } from "./projects/quai";
 import { ARCHWAY } from "./projects/archway";
+import { IRONFISH } from "./projects/ironfish";
 
 export const PROJECTS: IProjects = {
   obol: OBOL,
@@ -26,5 +27,6 @@ export const PROJECTS: IProjects = {
   namada: NAMADA,
   nibiru: NIBIRU,
   quai: QUAI,
-  archway: ARCHWAY
+  archway: ARCHWAY,
+  ironfish: IRONFISH
 };
