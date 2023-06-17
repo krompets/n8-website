@@ -7,7 +7,7 @@ export const OBOL: IProject = {
   name: 'obol',
   description: 'The Obol Network is an ecosystem for trust minimized staking that enables people to create, test,' +
     ' run & co-ordinate distributed validators',
-  status: EProjectStatus.active,
+  status: EProjectStatus.upcoming,
   dates: 'N/a',
   type: 'Tech',
   requirements: {

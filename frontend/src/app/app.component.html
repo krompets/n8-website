@@ -1,3 +1,9 @@
 <div class="app-wrapper">
   <router-outlet></router-outlet>
 </div>
+
+<!-- Scroll to top button -->
+<button class="scroll-to-top"
+        [ngClass]="{'show-scrollTop': windowScrolled}"
+        (click)="scrollToTop()"
+></button>

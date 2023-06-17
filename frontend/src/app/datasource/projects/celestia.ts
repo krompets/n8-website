@@ -7,7 +7,7 @@ export const CELESTIA: IProject = {
   name: 'celestia',
   description: 'Celestia is a modular consensus and data network, built to enable anyone to easily deploy their own ' +
     'blockchain with minimal overhead.',
-  status: EProjectStatus.active,
+  status: EProjectStatus.ended,
   dates: 'N/a',
   type: 'Tech',
   requirements: {

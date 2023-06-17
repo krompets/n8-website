@@ -7,7 +7,7 @@ export const KYVE: IProject = {
   name: 'kyve',
   description: 'KYVE Network is revolutionizing customized access to on- and off-chain data by providing fast and easy' +
     ' tooling for decentralized data validation, immutability, and retrieval.',
-  status: EProjectStatus.active,
+  status: EProjectStatus.ended,
   dates: 'N/a',
   type: 'Tech',
   requirements: {

@@ -49,3 +49,8 @@ export interface IFilters {
   status: EProjectStatus,
   pageSize: number
 }
+
+export interface IProjectsCounter {
+  total: number,
+  shown: number
+}

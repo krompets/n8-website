@@ -55,7 +55,6 @@
     </div>
   </div>
 
-
   <!-- Your Blockchain Team! -->
   <div class="app-content-wrapper__team">
     <h2 class="app-content-wrapper__title">Your Blockchain Team!</h2>
@@ -90,40 +89,40 @@
     </div>
   </div>
 
-
   <!-- NETWORKS -->
   <div class="app-content-wrapper__networks" [id]="anchor.networks">
     <h2 class="app-content-wrapper__title">NETWORKS</h2>
     <div class="networks-content">
+      <input type="radio" name="slider" [id]="filters.active" checked>
+      <input type="radio" name="slider" [id]="filters.upcoming">
+      <input type="radio" name="slider" [id]="filters.ended">
       <div class="networks-content__tabs">
-        <div class="networks-content__tabs--item"
-             [class.active]="currentFilters.status === filters.active"
+        <label [for]="filters.active" class="networks-content__tabs--item"
              (click)="setFilter(filters.active)"
-        >ACTIVE</div>
-        <div class="networks-content__tabs--item"
-             [class.active]="currentFilters.status === filters.upcoming"
+        >ACTIVE</label>
+        <label [for]="filters.upcoming" class="networks-content__tabs--item"
              (click)="setFilter(filters.upcoming)"
-        >UPCOMING</div>
-        <div class="networks-content__tabs--item"
-             [class.active]="currentFilters.status === filters.ended"
+        >UPCOMING</label>
+        <label [for]="filters.ended" class="networks-content__tabs--item"
              (click)="setFilter(filters.ended)"
-        >ENDED</div>
+        >ENDED</label>
+        <div class="slider"></div>
       </div>
+
       <div class="networks-content__cards">
         <div *ngFor="let project of projectsService.projects$.value | keyvalue"
              class="card-item"
              [routerLink]="['/project', project.key]"
+             [@fade]
         >
-<!--          <div class="card-item">-->
             <div class="card-item__icon">
               <img [src]="'assets/' + project.value.icon" alt="">
             </div>
             <div class="card-item__name">{{project.value.title}}</div>
             <div class="card-item__rating">Rating: {{project.value.rating}}</div>
-<!--          </div>-->
         </div>
       </div>
-      <div class="networks-content__paginator">
+      <div *ngIf="showPaginator()" class="networks-content__paginator">
         <button class="load-more-btn" (click)="showMore()"></button>
       </div>
     </div>

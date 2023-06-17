@@ -7,6 +7,11 @@ import { CELESTIA } from "./projects/celestia";
 import { STARKNET } from "./projects/starknet";
 import { BASE } from "./projects/base";
 import { ALEO } from "./projects/aleo";
+import { LAMINA1 } from "./projects/lamina1";
+import { NAMADA } from "./projects/namada";
+import { NIBIRU } from "./projects/nibiru";
+import { QUAI } from "./projects/quai";
+import { ARCHWAY } from "./projects/archway";
 
 export const PROJECTS: IProjects = {
   obol: OBOL,
@@ -16,5 +21,10 @@ export const PROJECTS: IProjects = {
   celestia: CELESTIA,
   starknet: STARKNET,
   base: BASE,
-  aleo: ALEO
+  aleo: ALEO,
+  lamina1: LAMINA1,
+  namada: NAMADA,
+  nibiru: NIBIRU,
+  quai: QUAI,
+  archway: ARCHWAY
 };

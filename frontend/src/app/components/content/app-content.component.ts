@@ -3,11 +3,20 @@ import { EAnchor, EProjectStatus, IFilters } from "../../types/types";
 import { ScrollService } from "../../services/scroll.service";
 import { Router } from "@angular/router";
 import { ProjectsService } from "../../services/projects.service";
+import { animate, style, transition, trigger } from "@angular/animations";
 
 @Component({
   selector: 'app-content',
   templateUrl: './app-content.component.html',
-  styleUrls: ['./app-content.component.less']
+  styleUrls: ['./app-content.component.less'],
+  animations: [
+    trigger('fade', [
+      transition('void => *', [
+        style({ opacity: 0 }),
+        animate(400, style({opacity: 1}))
+      ])
+    ])
+  ]
 })
 export class AppContentComponent implements OnInit {
   anchor = EAnchor;
@@ -68,5 +77,9 @@ export class AppContentComponent implements OnInit {
   showMore() {
     this.currentFilters.pageSize = this.currentFilters.pageSize * 2;
     this.doFilter();
+  }
+
+  showPaginator() {
+    return this.projectsService.projectsCounter$.value.total > this.projectsService.projectsCounter$.value.shown;
   }
 }

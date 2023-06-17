@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from "rxjs";
 import { PROJECTS } from "../datasource/projects";
-import { EProjectStatus, IFilters, IProjects } from "../types/types";
+import { EProjectStatus, IFilters, IProjects, IProjectsCounter } from "../types/types";
 
 
 @Injectable({
@@ -9,6 +9,11 @@ import { EProjectStatus, IFilters, IProjects } from "../types/types";
 })
 export class ProjectsService {
   projects$ = new BehaviorSubject<IProjects>({});
+  projectsCounter$ = new BehaviorSubject<IProjectsCounter>({
+    total: 0,
+    shown: 0
+  });
+
   filterSubject$ = new BehaviorSubject<IFilters>({
     status: EProjectStatus.active,
     pageSize: 8}
@@ -17,13 +22,26 @@ export class ProjectsService {
   filterProjects(filters: IFilters) {
     const filtered: IProjects = {};
     let count = 0;
-    for (const project in PROJECTS) {
+    let sortedObj = {};
+    Object.keys(PROJECTS)
+      .sort()
+      .forEach(key => {
+        // @ts-ignore
+        sortedObj[key] = filtered[key];
+      });
+    for (const project in sortedObj) {
       if (count >= filters.pageSize) break;
       if (PROJECTS[project].status === filters.status) {
         filtered[project] = PROJECTS[project];
         count += 1;
       }
     }
+    this.projectsCounter$.next({
+      total: Object.values(PROJECTS)
+        .filter(project => project.status === filters.status)
+        .length,
+      shown: count
+    });
     this.projects$.next(filtered);
   }
 
