@@ -13,7 +13,7 @@ import { animate, style, transition, trigger } from "@angular/animations";
     trigger('fade', [
       transition('void => *', [
         style({ opacity: 0 }),
-        animate(400, style({opacity: 1}))
+        animate(600, style({opacity: 1}))
       ])
     ])
   ]
@@ -25,6 +25,7 @@ export class AppContentComponent implements OnInit {
     card2: true,
     card3: true
   }
+  showPaginator = false;
 
   filters = EProjectStatus;
   SMALL_SCREEN_SIZE = false;
@@ -47,6 +48,7 @@ export class AppContentComponent implements OnInit {
     this.projectsService.filterSubject$.subscribe((filters) => {
       this.projectsService.filterProjects(filters);
     })
+    this.checkPaginator();
   }
 
   setFilter(status: EProjectStatus) {
@@ -56,6 +58,7 @@ export class AppContentComponent implements OnInit {
 
   doFilter() {
     this.projectsService.filterSubject$.next(this.currentFilters);
+    this.checkPaginator();
   }
 
   checkScreenSize() {
@@ -79,7 +82,7 @@ export class AppContentComponent implements OnInit {
     this.doFilter();
   }
 
-  showPaginator() {
-    return this.projectsService.projectsCounter$.value.total > this.projectsService.projectsCounter$.value.shown;
+  checkPaginator() {
+    this.showPaginator = this.projectsService.projectsCounter$.value.total > this.projectsService.projectsCounter$.value.shown;
   }
 }

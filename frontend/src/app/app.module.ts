@@ -5,10 +5,6 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSelectModule } from '@angular/material/select';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatInputModule } from '@angular/material/input';
-import { MatCardModule } from '@angular/material/card';
 import { AppMenuComponent } from './components/menu/app-menu.component';
 import { AppMainComponent } from './components/main/app-main.component';
 import { AppContentComponent } from './components/content/app-content.component';
@@ -32,10 +28,6 @@ import { ProjectPageComponent } from "./pages/project-page/project-page.componen
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSelectModule,
-    MatCheckboxModule,
-    MatInputModule,
-    MatCardModule,
     AppRoutingModule
   ],
   providers: [ScrollService],

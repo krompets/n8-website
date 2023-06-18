@@ -1,7 +1,8 @@
-import { Component, HostListener, Inject } from '@angular/core';
+import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from "@angular/common";
 import { slideInAnimation } from "./route-animation";
-import { Router } from "@angular/router";
+import { NavigationEnd, Router } from "@angular/router";
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +10,13 @@ import { Router } from "@angular/router";
   styleUrls: ['./app.component.less'],
   animations: [ slideInAnimation ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   windowScrolled: boolean = false;
+  animationTrigger: any = 'main';
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private route: Router
+    private router: Router
   ) { }
 
   @HostListener("window:scroll", [])
@@ -35,7 +37,11 @@ export class AppComponent {
     });
   }
 
-  getAnimation() {
-    return this.route.url;
+  ngOnInit() {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: any) => {
+         this.animationTrigger = event.url;
+      });
   }
 }

@@ -9,6 +9,6 @@ export const slideInAnimation =
   trigger('routeAnimations', [
     transition('* => *', [
       style({ opacity: 0 }),
-      animate(1000, style({opacity: 1}))
+      animate('500ms ease-in-out', style({opacity: 1}))
     ])
   ]);
