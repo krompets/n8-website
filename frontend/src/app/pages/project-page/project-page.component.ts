@@ -36,6 +36,7 @@ export class ProjectPageComponent {
 
   clearSearch() {
     this.searchResults = null;
+    this.searchQuery = '';
   }
 
   navigateToProject(key: any) {

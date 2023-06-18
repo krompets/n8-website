@@ -8,9 +8,9 @@
         <div class="advantage-content__card--icon">
           <div class="card1_icon card-icon"></div>
           <h3>Grow your passive income</h3>
-          <span class="expand-more-icon material-symbols-outlined"
+          <span class="expand-more-icon"
                 (click)="advantageAccordionState.card1 = !advantageAccordionState.card1"
-          >expand_more</span>
+          ></span>
         </div>
         <div *ngIf="advantageAccordionState.card1"
              class="advantage-content__card--description">
@@ -25,9 +25,9 @@
         <div class="advantage-content__card--icon">
           <div class="card2_icon card-icon"></div>
           <h3>Project and community support</h3>
-          <span class="expand-more-icon material-symbols-outlined"
+          <span class="expand-more-icon"
                 (click)="advantageAccordionState.card2 = !advantageAccordionState.card2"
-          >expand_more</span>
+          ></span>
         </div>
         <div *ngIf="advantageAccordionState.card2"
              class="advantage-content__card--description">
@@ -42,7 +42,7 @@
           <div class="card3_icon card-icon"></div>
           <h3>Collaboration with projects</h3>
           <span (click)="advantageAccordionState.card3 = !advantageAccordionState.card3"
-                class="expand-more-icon material-symbols-outlined">expand_more</span>
+                class="expand-more-icon"></span>
         </div>
         <div *ngIf="advantageAccordionState.card3" class="advantage-content__card--description">
           We offer a range of services including running RPC nodes, State Sync services,
@@ -81,7 +81,7 @@
         <div class="team-content__right--button">
           <div class="button-wrapper">
             <button class="button btn-sm" (click)="scroll.scrollToElement(anchor.contacts)">
-              CONTACT  US <span class="material-symbols-outlined">expand_more</span>
+              CONTACT  US <span class="expand-more-icon"></span>
             </button>
           </div>
         </div>

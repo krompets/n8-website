@@ -4,8 +4,9 @@ import { MainPageComponent } from "./pages/main-page/main-page.component";
 import { ProjectPageComponent } from "./pages/project-page/project-page.component";
 
 const routes: Routes = [
-  { path: '', component: MainPageComponent },
-  { path: 'project/:name', component: ProjectPageComponent}
+  { path: '', pathMatch: 'full', redirectTo: '/main' },
+  { path: 'main', component: MainPageComponent, data: {animation: 'Main'}},
+  { path: 'project/:name', component: ProjectPageComponent, data: {animation: 'Project'}}
 ];
 
 @NgModule({

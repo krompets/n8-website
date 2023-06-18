@@ -1,15 +1,21 @@
 import { Component, HostListener, Inject } from '@angular/core';
 import { DOCUMENT } from "@angular/common";
+import { slideInAnimation } from "./route-animation";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.less']
+  styleUrls: ['./app.component.less'],
+  animations: [ slideInAnimation ]
 })
 export class AppComponent {
   windowScrolled: boolean = false;
 
-  constructor(@Inject(DOCUMENT) private document: Document) { }
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private route: Router
+  ) { }
 
   @HostListener("window:scroll", [])
 
@@ -27,5 +33,9 @@ export class AppComponent {
       top: 0,
       behavior: 'smooth'
     });
+  }
+
+  getAnimation() {
+    return this.route.url;
   }
 }
