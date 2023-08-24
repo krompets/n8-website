@@ -1,0 +1,56 @@
+<div class="activity-generator-page-wrapper">
+  <div class="project-page-wrapper__menu">
+    <div class="app-logo" routerLink="/"></div>
+  </div>
+
+  <div class="activity-generator-page-wrapper__page">
+    <h2 class="activity-page-title"><<< Generate your own schedule to perform activities >>></h2>
+    <div>
+      <div class="form">
+        <mat-form-field class="example-chip-list" appearance="fill">
+          <mat-label>Activity</mat-label>
+          <mat-chip-list #chipList aria-label="Fruit selection">
+            <mat-chip
+              *ngFor="let activity of activities"
+              (removed)="remove(activity)">
+              {{activity}}
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input
+              placeholder="enter activities you want to perform separated by comma"
+              #activityInput
+              [formControl]="activityCtrl"
+              [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+        </mat-form-field>
+        <mat-form-field class="accounts-full-width" appearance="fill">
+          <mat-label>Accounts count</mat-label>
+          <input type="number" matInput [formControl]="accountsFormControl" placeholder="your accounts count">
+          </mat-form-field>
+        <button class="btn-generate button btn-sm" (click)="generateTable()">
+          Generate
+        </button>
+        <button class="btn-export button btn-sm" (click)="exportAsCSV()">Export as CSV</button>
+      </div>
+    </div>
+    <table #dataTable>
+      <thead>
+      <tr>
+        <th>Account</th>
+        <th *ngFor="let day of days">{{ 'Day ' + day }}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users; let i = index">
+        <td>{{ user }}</td>
+        <td *ngFor="let day of days">{{ distribution[user]['day'+ day]}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="full-bg"></div>

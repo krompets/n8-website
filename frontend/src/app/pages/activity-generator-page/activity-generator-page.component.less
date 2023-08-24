@@ -1,0 +1,292 @@
+.activity-generator-page-wrapper {
+  &__menu {
+    height: 50px;
+    margin: 45px;
+    display: flex;
+    align-items: center;
+  }
+  &__page {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px;
+    margin-top: 70px;
+    min-height: 813px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0px 1px 2px rgba(239, 232, 232, 0.6);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    margin-bottom: 50px;
+
+    .activity-page-title {
+      text-align: center;
+      margin-left: 15px;
+      font-size: 28px;
+      line-height: 38px;
+      color: #11B6DC;
+      font-weight: 400;
+    }
+
+    /* Base table style */
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background-color: #011E20;
+      color: #11B6DC;;
+      border-radius: 8px;
+      overflow: hidden; /* Ensures the child cells don’t break the round corners */
+      margin: 20px 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Table header styles */
+    thead {
+      background: linear-gradient(180deg, rgba(17, 182, 220, 0.3) 0%, rgba(228, 14, 207, 0.3) 100%);
+    }
+
+    thead th {
+      padding: 10px 15px;
+      border-bottom: 1px solid #555;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    /* Table body styles */
+    tbody td {
+      font-size: 11px;
+      padding: 10px 15px;
+      border-bottom: 1px solid #555;
+      word-break: break-all;
+    }
+
+    /* Removing border from the last row */
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Row hover effect */
+    tbody tr:hover {
+      background-color: #011E20;
+    }
+
+    /* Striped rows */
+    tbody tr:nth-child(even) {
+      background: linear-gradient(180deg, #25032d 44.79%, rgba(250, 164, 252, 0) 100%);
+    }
+
+    /* To give a bit of depth */
+    table {
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+
+    ::ng-deep .mat-form-field-wrapper {
+      border-radius: 10px;
+      margin-top: 20px;
+      box-sizing: border-box;
+    }
+    .activities-input {
+      color: #11B6DC;;
+    }
+
+    ::ng-deep .mat-chip.mat-standard-chip {
+      background: linear-gradient(267.18deg, rgba(17, 182, 220, 0.8) -3.89%, rgba(228, 14, 207, 0.8) 108.02%);
+      color: #8FFFA1;
+      .mat-icon {
+        color: #11B6DC;
+      }
+    }
+    ::ng-deep input.mat-chip-input {
+      color: #11B6DC;
+      &::placeholder {
+        color: #11B6DC;
+        opacity: .5;
+      }
+    }
+    ::ng-deep .mat-form-field-label {
+      color: #11B6DC;
+    }
+    ::ng-deep .accounts-full-width {
+      color: #11B6DC;
+    }
+  }
+  .form {
+    display: flex;
+    padding: 40px;
+    border:2px solid #11B6DC;
+    border-radius: 20px;
+    flex-direction: column;
+    ::ng-deep .mat-form-field-underline::before,
+    ::ng-deep .mat-form-field-ripple {
+      background: #11B6DC !important;
+    }
+  }
+  .btn-export {
+    margin-top: 30px;
+    &:hover {
+      opacity: .5;
+    }
+  }
+  .btn-generate{
+    background: linear-gradient(167.18deg, rgba(17, 182, 220, 0.8) -3.89%, rgba(228, 14, 207, 0.8) 108.02%);
+    &:hover {
+      opacity: .5;
+    }
+  }
+}
+
+::ng-deep .mat-autocomplete-panel{
+  background: #162948;
+  .mat-option-text{
+    color: white;
+  }
+  z-index: 9999;
+}
+
+.full-bg {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url("src/assets/projects-bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.project-not-found {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  padding: 50px;
+  margin-top: 170px;
+  min-height: 513px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px 1px 2px rgba(239, 232, 232, 0.6);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  color: #11B6DC;
+}
+
+@media (max-width: 1303px) {
+  .project-page-wrapper {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .full-bg {
+    display: none;
+  }
+  .project-page-wrapper {
+    &__menu {
+      font-size: 14px;
+      line-height: 17px;
+      margin: 10px 0 0 0;
+      height: 27px;
+      justify-content: space-between;
+      ::ng-deep .app-logo {
+        width: 32px;
+        height: 23px;
+      }
+      .search-project {
+        &__input {
+          height: 27px;
+          width: 275px;
+          margin-left: 15px;
+          font-size: 14px;
+          line-height: 17px;
+        }
+        &__result {
+          width: 275px;
+          top: 30px;
+          left: 15px;
+          &--item {
+            font-size: 14px;
+            line-height: 17px;
+          }
+        }
+      }
+    }
+    &__page {
+      margin-top: 30px;
+      padding: 24px 10px;
+      min-height: unset;
+
+      .project-title {
+        justify-content: center;
+        align-items: center;
+        .project-icon {
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+        .project-name {
+          margin-left: 15px;
+          color: #11B6DC;
+          font-size: 18px;
+          line-height: 22px;
+          background: linear-gradient(180deg, #9EEEF3 44.79%, rgba(250, 164, 252, 0) 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+        }
+      }
+
+      .project-status {
+        height: 50px;
+        color: #11B6DC;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 17px;
+        div {
+          width: auto;
+        }
+      }
+
+      .project-description {
+        font-size: 12px;
+        line-height: 15px;
+      }
+
+      .project-requirements {
+        margin-top: 50px;
+        h3 {
+          font-size: 18px;
+          line-height: 22px;
+        }
+        .table {
+          font-size: 14px;
+          line-height: 17px;
+          letter-spacing: 0.04em;
+          color: #11B6DC;
+          td {
+            width: 110px;
+            height: 25px;
+          }
+        }
+      }
+      .project-media {
+        margin-top: 100px;
+        .social-items {
+          .social-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 12px;
+            background-size: 100%;
+          }
+        }
+      }
+    }
+  }
+}
