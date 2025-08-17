@@ -14,7 +14,7 @@ if [ ! -e data/certbot/conf/ssl-dhparams.pem ]; then
 fi
 
 # Request certificate
-docker-compose run --rm certbot certonly --webroot -w /var/www/certbot --email rkrompets@gmail.com -d n8.team --rsa-key-size 4096 --agree-tos --force-renewal
+docker-compose run --rm certbot certonly --webroot -w /var/www/certbot --email contactn8team@gmail.com -d n8.team --rsa-key-size 4096 --agree-tos --force-renewal
 
 # Reload nginx
 docker-compose restart frontend 

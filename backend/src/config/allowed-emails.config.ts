@@ -1,5 +1,2 @@
-export const allowedEmails = [
-  'krompets@gmail.com',
-  'rkrompets@gmail.com',
-  // Add more allowed emails here
-]; 
+// Keep empty in repo; use DB or ALLOWED_EMAILS env instead.
+export const allowedEmails: string[] = [];
