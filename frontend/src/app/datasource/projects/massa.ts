@@ -9,7 +9,7 @@ export const MASSA: IProject = {
     '<br>' +
     '<br>' +
     'Massa is the leading decentralized and scaled blockchain. It is based on a parallel block technology able to process thousands of operations per second with minimal energy consumption. Through a fair ICO and other crucial decisions ensuring decentralization, Massa is the first blockchain with a Nakamoto decentralization coefficient above 1000. Currently in testnet phase with over 5000 nodes, Massa will be the first blockchain to feature autonomous smart contracts and decentralized web hosting.',
-  status: EProjectStatus.active,
+  status: EProjectStatus.ended,
   dates: 'N/a',
   type: 'Tech',
   requirements: {

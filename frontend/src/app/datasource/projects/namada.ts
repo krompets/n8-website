@@ -9,7 +9,7 @@ export const NAMADA: IProject = {
     'fast-finality chains via IBC and with Ethereum via a trustless two-way bridge. ' +
     'Namada is Anoma\'s first fractal instance, a first step towards the multi-chain vision of homogeneous ' +
     'architecture, heterogeneous security.',
-  status: EProjectStatus.active,
+  status: EProjectStatus.ended,
   dates: 'N/a',
   type: 'Tech',
   requirements: {

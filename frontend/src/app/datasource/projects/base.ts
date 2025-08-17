@@ -6,7 +6,7 @@ export const BASE: IProject = {
   rating: 'Not rated',
   name: 'base',
   description: 'Base is a secure, low-cost, developer-friendly Ethereum L2 built to bring the next billion users to web3.',
-  status: EProjectStatus.active,
+  status: EProjectStatus.ended,
   dates: 'N/a',
   type: 'Tech/Community',
   requirements: {

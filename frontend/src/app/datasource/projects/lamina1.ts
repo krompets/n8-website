@@ -6,7 +6,7 @@ export const LAMINA1: IProject = {
   rating: 'Not rated',
   name: 'lamina1',
   description: 'LAMINA1 is the fabric of the open metaverse — a blockchain providing builders and creators a usable framework to create a better online future.',
-  status: EProjectStatus.active,
+  status: EProjectStatus.ended,
   dates: 'N/a',
   type: 'Tech',
   requirements: {

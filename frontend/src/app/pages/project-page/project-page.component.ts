@@ -22,7 +22,12 @@ export class ProjectPageComponent {
   ngOnInit() {
     this.route.params.subscribe(params => {
       const name = params['name'];
-      this.project = this.projectsService.loadProject(name)
+      // initial attempt from current cache
+      this.project = this.projectsService.loadProject(name);
+      // subscribe to updates when async API finishes loading
+      this.projectsService.getProject$(name).subscribe(p => {
+        if (p) this.project = p;
+      });
     });
   }
 

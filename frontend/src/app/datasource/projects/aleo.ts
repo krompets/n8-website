@@ -9,7 +9,7 @@ export const ALEO: IProject = {
     '<br>' +
     '<br>' +
     'Aleo has raised $200M in a Series B funding round led by Kora Management LP and SoftBank Vision Fund 2, culminating in a valuation of the company at $1.45 billion.',
-  status: EProjectStatus.active,
+  status: EProjectStatus.ended,
   dates: 'N/a',
   type: 'Tech/Community',
   requirements: {

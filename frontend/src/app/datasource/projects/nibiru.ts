@@ -10,7 +10,7 @@ export const NIBIRU: IProject = {
     'Nibiru unifies leveraged derivatives trading, spot trading, staking, and bonded liquidity provision into a ' +
     'seamless user experience, enabling users of over 40 blockchains to trade with leverage using a suite of ' +
     'composable decentralized applications.',
-  status: EProjectStatus.active,
+  status: EProjectStatus.ended,
   dates: 'N/a',
   type: 'Tech',
   requirements: {

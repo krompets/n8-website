@@ -6,7 +6,7 @@ export const QUAI: IProject = {
   rating: 'Not rated',
   name: 'quai',
   description: 'Building the world’s cryptocurrency on a scalable PoW EVM compatible merged mined hierarchy of blockchains',
-  status: EProjectStatus.active,
+  status: EProjectStatus.ended,
   dates: 'N/a',
   type: 'Tech/Community',
   requirements: {

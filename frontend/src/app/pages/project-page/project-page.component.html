@@ -21,7 +21,7 @@
   <div class="project-page-wrapper__page" *ngIf="project else noSuchProject">
     <div>
       <div class="project-title">
-        <div class="project-icon"><img [src]="'assets/' + project.icon"></div>
+        <div class="project-icon"><img [src]="(project.icon?.startsWith('/') || project.icon?.startsWith('http')) ? project.icon : 'assets/' + project.icon"></div>
         <div class="project-name">{{project.title}}</div>
       </div>
 

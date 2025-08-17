@@ -116,7 +116,7 @@
              [@fade]
         >
             <div class="card-item__icon">
-              <img [src]="'assets/' + project.value.icon" alt="">
+              <img [src]="(project.value.icon && (project.value.icon.startsWith('/') || project.value.icon.startsWith('http'))) ? project.value.icon : 'assets/' + project.value.icon" alt="">
             </div>
             <div class="card-item__name">{{project.value.title}}</div>
             <div class="card-item__rating">Rating: {{project.value.rating}}</div>

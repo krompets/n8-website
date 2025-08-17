@@ -7,7 +7,7 @@ export const SHARDEUM: IProject = {
   name: 'shardeum',
   description: 'Shardeum is an EVM-based, linearly scalable smart contract platform that provides low gas fees ' +
     'forever while maintaining true decentralization and solid security through dynamic state sharding.',
-  status: EProjectStatus.active,
+  status: EProjectStatus.ended,
   dates: 'N/a',
   type: 'Tech',
   requirements: {
